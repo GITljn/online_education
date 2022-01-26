@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.eduservice.mapper.EduChapterMapper">
+    <select id="getChapterVideo" resultType="com.atguigu.eduservice.entity.vo.ChapterVideoVo">
+        select c.id chapterId, c.title chapterTitle, c.sort chapterSort, v.id videoId, v.title videoTitle, v.sort videoSort, v.video_source_id
+         from edu_chapter c left join edu_video v on c.course_id = v.course_id AND c.id = v.chapter_id where
+        c.course_id = #{courseId}
+    </select>
+</mapper>
